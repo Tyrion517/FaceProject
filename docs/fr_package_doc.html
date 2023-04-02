@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://face-recognition.readthedocs.io/en/latest/face_recognition.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>face_recognition package — Face Recognition 1.4.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="./fr_package_doc_files/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="./fr_package_doc_files/documentation_options.js"></script>
+        <script type="text/javascript" src="./fr_package_doc_files/jquery.js"></script>
+        <script type="text/javascript" src="./fr_package_doc_files/underscore.js"></script>
+        <script type="text/javascript" src="./fr_package_doc_files/doctools.js"></script>
+        <script type="text/javascript" src="./fr_package_doc_files/language_data.js"></script>
+        <script async="async" type="text/javascript" src="./fr_package_doc_files/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="./fr_package_doc_files/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="./fr_package_doc_files/theme.css" type="text/css">
+  <link rel="stylesheet" href="./fr_package_doc_files/pygments.css" type="text/css">
+    <link rel="index" title="Index" href="https://face-recognition.readthedocs.io/en/latest/genindex.html">
+    <link rel="search" title="Search" href="https://face-recognition.readthedocs.io/en/latest/search.html">
+    <link rel="next" title="Contributing" href="https://face-recognition.readthedocs.io/en/latest/contributing.html">
+    <link rel="prev" title="face_recognition" href="https://face-recognition.readthedocs.io/en/latest/modules.html"> 
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="./fr_package_doc_files/readthedocs-doc-embed.css" type="text/css">
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2022-06-10T09:13:52Z", "builder": "sphinx", "canonical_url": null, "commit": "2e2dccea", "docroot": "/docs/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "face_recognition", "programming_language": "py", "project": "face-recognition", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="./fr_package_doc_files/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+<script src="./fr_package_doc_files/ethicalads.min.js" type="text/javascript" async="" id="ethicaladsjs"></script></head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="https://face-recognition.readthedocs.io/en/latest/index.html" class="icon icon-home"> Face Recognition
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://face-recognition.readthedocs.io/en/latest/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/readme.html">Face Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/modules.html"><span class="toctree-expand"></span>face_recognition</a><ul class="">
+<li class="toctree-l2 current"><a class="reference internal current" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#"><span class="toctree-expand"></span>face_recognition package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#module-face_recognition.api">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/history.html">History</a></li>
+</ul>
+
+            
+          
+        </div>
+      <div id="rtd-sidebar" data-ea-publisher="readthedocs" data-ea-type="readthedocs-sidebar" data-ea-manual="true" class="ethical-rtd ethical-dark-theme" data-ea-keywords="face-recognition|machine-learning|python|readthedocs-project-84361|readthedocs-project-face-recognition" data-ea-campaign-types="community|house|paid"></div></div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="https://face-recognition.readthedocs.io/en/latest/index.html">Face Recognition</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="https://face-recognition.readthedocs.io/en/latest/index.html">Docs</a> »</li>
+        
+          <li><a href="https://face-recognition.readthedocs.io/en/latest/modules.html">face_recognition</a> »</li>
+        
+      <li>face_recognition package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/ageitgey/face_recognition/blob/master/docs/face_recognition.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="face-recognition-package">
+<h1>face_recognition package<a class="headerlink" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face-recognition-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-face_recognition.api">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#module-face_recognition.api" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="face_recognition.api.batch_face_locations">
+<code class="descclassname">face_recognition.api.</code><code class="descname">batch_face_locations</code><span class="sig-paren">(</span><em>images</em>, <em>number_of_times_to_upsample=1</em>, <em>batch_size=128</em><span class="sig-paren">)</span><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/_modules/face_recognition/api.html#batch_face_locations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.batch_face_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an 2d array of bounding boxes of human faces in a image using the cnn face detector
+If you are using a GPU, this can give you much faster results since the GPU
+can process batches of images at once. If you aren’t using a GPU, you don’t need this function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>images</strong> – A list of images (each as a numpy array)</li>
+<li><strong>number_of_times_to_upsample</strong> – How many times to upsample the image looking for faces. Higher numbers find smaller faces.</li>
+<li><strong>batch_size</strong> – How many images to include in each GPU processing batch.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of tuples of found face locations in css (top, right, bottom, left) order</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="face_recognition.api.compare_faces">
+<code class="descclassname">face_recognition.api.</code><code class="descname">compare_faces</code><span class="sig-paren">(</span><em>known_face_encodings</em>, <em>face_encoding_to_check</em>, <em>tolerance=0.6</em><span class="sig-paren">)</span><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/_modules/face_recognition/api.html#compare_faces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.compare_faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare a list of face encodings against a candidate encoding to see if they match.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>known_face_encodings</strong> – A list of known face encodings</li>
+<li><strong>face_encoding_to_check</strong> – A single face encoding to compare against the list</li>
+<li><strong>tolerance</strong> – How much distance between faces to consider it a match. Lower is more strict. 0.6 is typical best performance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of True/False values indicating which known_face_encodings match the face encoding to check</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="face_recognition.api.face_distance">
+<code class="descclassname">face_recognition.api.</code><code class="descname">face_distance</code><span class="sig-paren">(</span><em>face_encodings</em>, <em>face_to_compare</em><span class="sig-paren">)</span><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/_modules/face_recognition/api.html#face_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.face_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of face encodings, compare them to a known face encoding and get a euclidean distance
+for each comparison face. The distance tells you how similar the faces are.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>face_encodings</strong> – List of face encodings to compare</li>
+<li><strong>face_to_compare</strong> – A face encoding to compare against</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A numpy ndarray with the distance for each face in the same order as the ‘faces’ array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="face_recognition.api.face_encodings">
+<code class="descclassname">face_recognition.api.</code><code class="descname">face_encodings</code><span class="sig-paren">(</span><em>face_image</em>, <em>known_face_locations=None</em>, <em>num_jitters=1</em>, <em>model='small'</em><span class="sig-paren">)</span><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/_modules/face_recognition/api.html#face_encodings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.face_encodings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an image, return the 128-dimension face encoding for each face in the image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>face_image</strong> – The image that contains one or more faces</li>
+<li><strong>known_face_locations</strong> – Optional - the bounding boxes of each face if you already know them.</li>
+<li><strong>num_jitters</strong> – How many times to re-sample the face when calculating encoding. Higher is more accurate, but slower (i.e. 100 is 100x slower)</li>
+<li><strong>model</strong> – Optional - which model to use. “large” or “small” (default) which only returns 5 points but is faster.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of 128-dimensional face encodings (one for each face in the image)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="face_recognition.api.face_landmarks">
+<code class="descclassname">face_recognition.api.</code><code class="descname">face_landmarks</code><span class="sig-paren">(</span><em>face_image</em>, <em>face_locations=None</em>, <em>model='large'</em><span class="sig-paren">)</span><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/_modules/face_recognition/api.html#face_landmarks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.face_landmarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an image, returns a dict of face feature locations (eyes, nose, etc) for each face in the image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>face_image</strong> – image to search</li>
+<li><strong>face_locations</strong> – Optionally provide a list of face locations to check.</li>
+<li><strong>model</strong> – Optional - which model to use. “large” (default) or “small” which only returns 5 points but is faster.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of dicts of face feature locations (eyes, nose, etc)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="face_recognition.api.face_locations">
+<code class="descclassname">face_recognition.api.</code><code class="descname">face_locations</code><span class="sig-paren">(</span><em>img</em>, <em>number_of_times_to_upsample=1</em>, <em>model='hog'</em><span class="sig-paren">)</span><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/_modules/face_recognition/api.html#face_locations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.face_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an array of bounding boxes of human faces in a image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>img</strong> – An image (as a numpy array)</li>
+<li><strong>number_of_times_to_upsample</strong> – How many times to upsample the image looking for faces. Higher numbers find smaller faces.</li>
+<li><strong>model</strong> – Which face detection model to use. “hog” is less accurate but faster on CPUs. “cnn” is a more accurate
+deep-learning model which is GPU/CUDA accelerated (if available). The default is “hog”.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of tuples of found face locations in css (top, right, bottom, left) order</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="face_recognition.api.load_image_file">
+<code class="descclassname">face_recognition.api.</code><code class="descname">load_image_file</code><span class="sig-paren">(</span><em>file</em>, <em>mode='RGB'</em><span class="sig-paren">)</span><a class="reference internal" href="https://face-recognition.readthedocs.io/en/latest/_modules/face_recognition/api.html#load_image_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.load_image_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads an image file (.jpg, .png, etc) into a numpy array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<colgroup><col class="field-name">
+<col class="field-body">
+</colgroup><tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>file</strong> – image file name or file object to load</li>
+<li><strong>mode</strong> – format to convert the image to. Only ‘RGB’ (8-bit RGB, 3 channels) and ‘L’ (black and white) are supported.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">image contents as numpy array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="https://face-recognition.readthedocs.io/en/latest/contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="https://face-recognition.readthedocs.io/en/latest/modules.html" class="btn btn-neutral float-left" title="face_recognition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        © Copyright 2017, Adam Geitgey
+      
+        <span class="commit">
+          Revision <code>2e2dccea</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions"><!-- Inserted RTD Footer -->
+
+<div class="injected">
+
+  
+
+      
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+        <dd class="rtd-current-item">
+          <a href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html">latest</a>
+        </dd>
+        
+        <dd>
+          <a href="https://face-recognition.readthedocs.io/en/stable/face_recognition.html">stable</a>
+        </dd>
+        
+      </dl>
+      
+      
+
+      
+      
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="https://face-recognition.readthedocs.io/_/downloads/en/latest/pdf/">PDF</a></dd>
+        
+        <dd><a href="https://face-recognition.readthedocs.io/_/downloads/en/latest/htmlzip/">HTML</a></dd>
+        
+        <dd><a href="https://face-recognition.readthedocs.io/_/downloads/en/latest/epub/">Epub</a></dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        
+        <!-- These are kept as relative links for internal installs that are http -->
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="https://readthedocs.org/projects/face-recognition/">Project Home</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/face-recognition/builds/">Builds</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/face-recognition/downloads/">Downloads</a>
+        </dd>
+      </dl>
+      
+
+      
+
+      
+      <dl>
+        <dt>On GitHub</dt>
+        <dd>
+          <a href="https://github.com/ageitgey/face_recognition/blob/master/docs/face_recognition.rst">View</a>
+        </dd>
+        
+        <dd>
+          <a href="https://github.com/ageitgey/face_recognition/edit/master/docs/face_recognition.rst">Edit</a>
+        </dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            
+            <form id="flyout-search-form" class="wy-form" target="_blank" action="https://readthedocs.org/projects/face-recognition/search/" method="get">
+              <input type="text" name="q" aria-label="Search docs" placeholder="Search docs">
+              </form>
+          </div>
+        </dd>
+      </dl>
+      
+
+      <hr>
+
+      
+        <small>
+          <span>Hosted by <a href="https://readthedocs.org/">Read the Docs</a></span>
+          <span> · </span>
+          <a href="https://docs.readthedocs.io/page/privacy-policy.html">Privacy Policy</a>
+        </small>
+      
+
+      
+
+</div>
+</div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+
+<div id="fatkun-drop-panel">
+    <a id="fatkun-drop-panel-close-btn">×</a>
+        <div id="fatkun-drop-panel-inner">
+            <div class="fatkun-content">
+                <svg class="fatkun-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5892"><path d="M494.933333 782.933333c2.133333 2.133333 4.266667 4.266667 8.533334 6.4h8.533333c6.4 0 10.666667-2.133333 14.933333-6.4l2.133334-2.133333 275.2-275.2c8.533333-8.533333 8.533333-21.333333 0-29.866667-8.533333-8.533333-21.333333-8.533333-29.866667 0L533.333333 716.8V128c0-12.8-8.533333-21.333333-21.333333-21.333333s-21.333333 8.533333-21.333333 21.333333v588.8L249.6 475.733333c-8.533333-8.533333-21.333333-8.533333-29.866667 0-8.533333 8.533333-8.533333 21.333333 0 29.866667l275.2 277.333333zM853.333333 874.666667H172.8c-12.8 0-21.333333 8.533333-21.333333 21.333333s8.533333 21.333333 21.333333 21.333333H853.333333c12.8 0 21.333333-8.533333 21.333334-21.333333s-10.666667-21.333333-21.333334-21.333333z" p-id="5893"></path></svg>
+                <div class="fatkun-title">拖拽到此处</div>
+                <div class="fatkun-desc">图片将完成下载</div>
+            </div>
+            <div id="fatkun-supported-by">Supported By AIX Downloader(Picture/Video/Music)</div>
+        </div>
+    </div></body><deepl-inline-trigger style="z-index: 2147483647;"></deepl-inline-trigger></html>

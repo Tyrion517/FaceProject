@@ -1,0 +1,9 @@
+face_recognition_models
+Click>=6.0
+dlib>=19.3.0
+numpy~=1.24.2
+Pillow~=9.5.0
+scipy>=0.17.0
+
+opencv-python~=4.7.0.72
+setuptools~=65.5.1
