@@ -11,8 +11,8 @@ class recognition:
         # 注意: 必须保证文件名和人名顺序一致!!!
         # TODO: 每次添加或删除已注册人脸后应手动修改此处
         # TODO: 或者想办法自动获取
-        self.known_names = ['joe biden', 'barack obama']
-        self.known_filenames = ['biden.jpg', 'obama.jpg']
+        self.known_names = ['joe biden', 'barack obama', 'Xiang Bo']
+        self.known_filenames = ['biden.jpg', 'obama.jpg', 'XiangBo.jpg']
 
         # 创造并填充用于储存已知人脸编码的列表
         # TODO: 用try/exception语句重构，以防图片中一个人脸也没有识别
@@ -24,13 +24,13 @@ class recognition:
             face_encoding = fr.face_encodings(face_image)[0]
             self.known_face_encodings.append(face_encoding)
 
-    def check_registered(self, face_to_verify: list) -> bool:
+    def check_registered(self, face_to_verify) -> bool:
         """ 检验人脸是否已经注册
             参数 face_to_verify: face_encoding -待检验人脸的编码"""
         results = fr.compare_faces(self.known_face_encodings, face_to_verify)
         return True in results
 
-    def verify_face(self, face_to_verify: list) -> Union[str, None]:
+    def verify_face(self, face_to_verify) -> Union[str, None]:
         """ 返回待检验人脸的名字，如果未注册则返回None
             参数 face_to_verify: face_encoding -待检验人脸的编码"""
         results = fr.compare_faces(self.known_face_encodings, face_to_verify)
@@ -38,6 +38,4 @@ class recognition:
             index = results.index(True)
             return self.known_names[index]
         return None
-
-
 
