@@ -1,3 +1,5 @@
+# 已弃用 识别请使用recognition类下的方法
+
 # face_recognition包的文档：https://face-recognition.readthedocs.io/en/latest/face_recognition.html
 # 为了方便表示，将用face_encoding表示face_recognition.api.face_encodings方法的返回值（list）的成员
 """
@@ -27,3 +29,4 @@ def verify_face(known_face_encodings: list, face_to_verify) -> bool:
 
     results = fr.compare_faces(known_face_encodings, face_to_verify)
     return True in results
+
