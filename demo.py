@@ -8,8 +8,7 @@ rec = recognition()
 
 # 储存已注册人脸的人名和文件名的列表
 # 为了效率和配合其他部分，并未使用字典
-# TODO: 每次添加或删除已注册人脸后应手动修改此处
-# TODO: 或者想办法自动获取
+
 
 known_names = ['joe biden', 'barack obama']
 known_filenames = ['biden.jpg', 'obama.jpg']

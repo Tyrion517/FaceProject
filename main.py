@@ -1,8 +1,13 @@
+import face_recognition
 import face_recognition as fr
 from recognition import recognition
 from take_photo import take_photo
 
-new_rec = recognition()
+rec = recognition()
+# TODO: 下面两行仅仅为了调试 发布时应删除
+# print(f'pic_names: {rec.pic_names}')
+# print(f'known_names: {rec.known_names}')
+
 while True:
     if input('command:') == 'n':
         try:
@@ -10,4 +15,6 @@ while True:
         except IndexError:
             print('No face detected!!!')
         else:
-            print(new_rec.verify_face(unknown_face))
+            print(rec.verify_face(unknown_face))
+            # TODO： 下一行代码仅作调试用 发布时应删除
+            # print(f'distances: {face_recognition.face_distance(rec.known_face_encodings,unknown_face)}')
