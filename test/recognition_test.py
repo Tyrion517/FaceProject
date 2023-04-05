@@ -5,8 +5,8 @@ import unittest
 import pytest
 import face_recognition as fr
 
-from recognition import *
-
+from recognition import recognition
+# unknown_path = os.path.join(os.path.dirname(__file__), 'pics', 'unknown_faces')
 unknown_path = '/home/tyrion/PycharmProjects/FaceProject/pics/unknown_faces'
 
 
@@ -43,7 +43,7 @@ class RecognitionTest(unittest.TestCase):
             except IndexError:
                 print(f'[{names[i]}]: No face detected!!!')
             else:
-                print(f'real name:{names[i]};\tdetected name: {self.rec.verify_face(face_to_verify)}')
+                print(f'real name:{names[i]};\tdetected name: {self.rec.verify_face(face_to_verify)};\tdistances: {fr.face_distance(self.rec.known_face_encodings, face_to_verify)}')
 
 
 if __name__ == '__main__':

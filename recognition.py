@@ -11,13 +11,8 @@ class recognition:
         """ 获取储存了已注册人脸的人名，文件名，编码的列表
          注意: 必须保证三个列表顺序一致!!!"""
 
-        # TODO： 调试用，发布时应删除
-        # unittest中必须使用绝对路经，不晓得为什么
-        # 为了可移植性 运行除了测试时均应使用相对路径
-        # self.directory = '/home/tyrion/PycharmProjects/FaceProject/pics/known_faces'
-
-        self.directory = 'pics/known_faces'
-        filenames = os.listdir(self.directory)
+        self.known_face_directory = os.path.join(os.path.dirname(__file__), 'pics', 'known_faces')
+        filenames = os.listdir(self.known_face_directory)
         # 获取文件文件名
         self.pic_names = [filename for filename in filenames if filename.endswith('.jpg')]
         # 创建并填充人名列表
@@ -28,7 +23,7 @@ class recognition:
         # 创造并填充用于储存已知人脸编码的列表
         self.known_face_encodings = []
         for i in range(len(self.pic_names)):
-            face_image = fr.load_image_file(f'{self.directory}/{self.pic_names[i]}')
+            face_image = fr.load_image_file(f'{self.known_face_directory}/{self.pic_names[i]}')
             # fr.face_encodings 返回的是包含图片中所有人脸编码的列表
             # 这里只取第一个
             try:
@@ -42,7 +37,7 @@ class recognition:
     def check_registered(self, face_to_verify) -> bool:
         """ 检验人脸是否已经注册
             参数 face_to_verify: face_encoding -待检验人脸的编码"""
-        results = fr.compare_faces(self.known_face_encodings, face_to_verify)
+        results = fr.compare_faces(self.known_face_encodings, face_to_verify, 0.50)
         return True in results
 
     def verify_face(self, face_to_verify) -> Union[str, None]:
