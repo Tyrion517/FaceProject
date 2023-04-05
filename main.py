@@ -13,6 +13,8 @@ SEVER_IP_ADDR = '127.0.0.1'
 PORT_NO = 1314
 severSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 severSock.bind((SEVER_IP_ADDR, PORT_NO))
+# 获取板子地址
+_, esp_addr = severSock.recvfrom(1024)
 
 
 while True:
