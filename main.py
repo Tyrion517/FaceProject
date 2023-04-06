@@ -1,3 +1,5 @@
+import sys
+
 import face_recognition as fr
 from recognition import recognition
 from take_photo import take_photo
