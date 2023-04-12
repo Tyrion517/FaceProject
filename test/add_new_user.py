@@ -1,8 +1,22 @@
-import os
-import numpy as np
-import face_recognition as fr
+# coding:utf-8
+import cv2
 
-def add_new_user(self, new_face):
-    verified = self.verify_face(new_face)  # 首先判断新输入的人脸是否已经注册过
-    if not verified:
-        new_known_face_name = input("请输入新增用户名:")
+cap = cv2.VideoCapture(0)
+flag = cap.isOpened()
+
+index = 1
+while (flag):
+    ret, frame = cap.read()
+    cv2.imshow("Capture_Paizhao", frame)
+    k = cv2.waitKey(1) & 0xFF
+    if k == ord('s'):  # 按下s键，进入下面的保存图片操作
+        cv2.imwrite("C:/Users/Administrator/Desktop/myFacePic/" + str(index) + ".jpg", frame)
+        print(cap.get(3))
+        print(cap.get(4))
+        print("save" + str(index) + ".jpg successfuly!")
+        print("-------------------------")
+        index += 1
+    elif k == ord('q'):  # 按下q键，程序退出
+        break
+cap.release()
+cv2.destroyAllWindows()

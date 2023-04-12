@@ -8,7 +8,7 @@ from typing import Union
 
 class recognition:
     """用来储存人脸识别所需数据和方法的类"""
-    def __init__(self,dorm):# 加入dorm为了区分不同宿舍的成员
+    def __init__(self,dorm):
         """ 获取储存了已注册人脸的人名，文件名，编码的列表
          注意: 必须保证三个列表顺序一致!!!"""
         self.known_face_directory = os.path.join(os.path.dirname(__file__), 'pics', 'known_faces',dorm)
@@ -43,11 +43,9 @@ class recognition:
     def verify_face(self, face_to_verify) -> Union[str, None]:
         """ 返回待检验人脸的名字，如果未注册则返回None
             参数 face_to_verify: face_encoding -待检验人脸的编码"""
-        try:
-            distances = fr.face_distance(self.known_face_encodings, face_to_verify)
-            target_index = distances.argmin()
-            if self.check_registered(face_to_verify):
-                return self.known_names[target_index]
-        except ValueError:
-            return None
+        distances = fr.face_distance(self.known_face_encodings, face_to_verify)
+        target_index = distances.argmin()
+        if self.check_registered(face_to_verify):
+            return self.known_names[target_index]
+        return None
 
