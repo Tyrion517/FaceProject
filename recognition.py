@@ -7,10 +7,11 @@ from typing import Union
 class recognition:
     """用来储存人脸识别所需数据和方法的类"""
 
-    def __init__(self):
+    def __init__(self,password='123456'):
         """ 获取储存了已注册人脸的人名，文件名，编码的列表
          注意: 必须保证三个列表顺序一致!!!"""
 
+        self.password = password
         self.known_face_directory = os.path.join(os.path.dirname(__file__), 'pics', 'known_faces')
         filenames = os.listdir(self.known_face_directory)
         # 获取文件文件名
@@ -34,18 +35,18 @@ class recognition:
             else:
                 self.known_face_encodings.append(face_encoding)
 
-    def check_registered(self, face_to_verify) -> bool:
+    def check_registered(self, face_to_verify, tolerance=0.42) -> bool:
         """ 检验人脸是否已经注册
             参数 face_to_verify: face_encoding -待检验人脸的编码"""
-        results = fr.compare_faces(self.known_face_encodings, face_to_verify, 0.50)
+        results = fr.compare_faces(self.known_face_encodings, face_to_verify, tolerance)
         return True in results
 
-    def verify_face(self, face_to_verify) -> Union[str, None]:
+    def verify_face(self, face_to_verify, tolerance=0.42) -> Union[str, None]:
         """ 返回待检验人脸的名字，如果未注册则返回None
             参数 face_to_verify: face_encoding -待检验人脸的编码"""
         distances = fr.face_distance(self.known_face_encodings, face_to_verify)
         target_index = distances.argmin()
-        if self.check_registered(face_to_verify):
+        if self.check_registered(face_to_verify, tolerance):
             return self.known_names[target_index]
         return None
 
