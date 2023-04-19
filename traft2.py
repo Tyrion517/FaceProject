@@ -61,7 +61,7 @@ class MainWindow(QMainWindow):
         self.timer.start(int(1000 // self.cap.get(cv2.CAP_PROP_FPS)))
 
     def update_frame(self):
-
+        # 给人脸画框的话会极大地增大视频延时，于是选择不画框
         ret, frame = self.cap.read()
         frame = cv2.flip(frame, 1)
         if ret:
@@ -70,18 +70,25 @@ class MainWindow(QMainWindow):
             self.video_label.setPixmap(QPixmap.fromImage(image))
 
     def click_recognize_button(self):
-        try:
-            ret, frame = self.cap.read()
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            unknown_face = fr.face_encodings(frame)[0]  # 拍照 加载并编码人脸
-        except IndexError:
+        ret, frame = self.cap.read()
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        unknown_faces = fr.face_encodings(frame)  # 拍照 加载并编码人脸
+        if not unknown_faces:
             self.output.setText('No face detected')
         else:
-            verified = self.rec.verify_face(unknown_face)
-            if verified:
-                self.output.setText(verified)
+            verifieds = self.rec.verify_face(unknown_faces)  # 只显示一个人的名字
+            str = ''
+            _ = 1  # 判断是否没有一张已注册人脸
+            for verified in verifieds:
+                if verified:
+                    str += ' '
+                    str += verified
+                    _ = 0
+            if _:
+                self.output.setText('No registered face!')
             else:
-                self.output.setText('Not registered!')
+                self.output.setText(str)
+
 
     def click_register_button(self):
         try:

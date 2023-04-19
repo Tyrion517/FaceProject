@@ -50,7 +50,16 @@ class recognition:
             return self.known_names[target_index]
         return None
 
-
+    def verify_face(self, faces_to_verify: list, tolerance=0.42) -> list:
+        """ 重载版本，传入列表而非单个人脸
+        传出列表而非单个人名"""
+        names = []
+        for face_to_verify in faces_to_verify:
+            distances = fr.face_distance(self.known_face_encodings, face_to_verify)
+            target_index = distances.argmin()
+            if self.check_registered(face_to_verify, tolerance):
+                names.append(self.known_names[target_index])
+        return names
 
 
 
