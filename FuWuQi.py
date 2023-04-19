@@ -57,10 +57,10 @@ def upload_file(ftp, remotepath, localpath):
 
 
 if __name__ == "__main__":
-    host = '192.168.1.XXX'  # IP
+    host = '192.168.0.18'  # IP
     port = 21  # 端口
-    username = 'ftpadmin'  # 用户名
-    password = 'ftpadmin'  # 密码
+    username = 'root'  # 用户名
+    password = 'A@zjxyyds7'  # 密码
     ftp = ftp_connect(host, port, username, password)
 
     upload_file(ftp, r"/CMAQ/ftp.log", r"/run/media/test/mydata/data_post/ftp.log")
