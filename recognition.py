@@ -1,5 +1,5 @@
 import os
-
+from numpy import ndarray
 import face_recognition as fr
 from typing import Union
 
@@ -41,7 +41,7 @@ class recognition:
         results = fr.compare_faces(self.known_face_encodings, face_to_verify, tolerance)
         return True in results
 
-    def verify_face(self, face_to_verify, tolerance=0.42) -> Union[str, None]:
+    def verify_face(self, face_to_verify: ndarray, tolerance=0.42) -> Union[str, None]:
         """ 返回待检验人脸的名字，如果未注册则返回None
             参数 face_to_verify: face_encoding -待检验人脸的编码"""
         distances = fr.face_distance(self.known_face_encodings, face_to_verify)
@@ -50,7 +50,7 @@ class recognition:
             return self.known_names[target_index]
         return None
 
-    def verify_face(self, faces_to_verify: list, tolerance=0.42) -> list:
+    def verify_faces(self, faces_to_verify: list, tolerance=0.42) -> list:
         """ 重载版本，传入列表而非单个人脸
         传出列表而非单个人名"""
         names = []
